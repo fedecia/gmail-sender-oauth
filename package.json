@@ -21,9 +21,9 @@
     "_patch-release": "npm version patch && npm publish",
     "_minor-release": "npm version minor && npm publish",
     "_major-release": "npm version major && npm publish",
-    "patch-release": "npm test && npm run _patch-release && npm run commit-and-push",
-    "minor-release": "npm test && npm run _minor-release && npm run commit-and-push",
-    "__major-release": "npm test && npm run _major-release && npm run commit-and-push"
+    "patch-release": "npm test && npm run _patch-release && npm run _push",
+    "minor-release": "npm test && npm run _minor-release && npm run _push",
+    "__major-release": "npm test && npm run _major-release && npm run _push"
   },
   "repository": {
     "type": "git",
