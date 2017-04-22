@@ -1,0 +1,59 @@
+{
+  "name": "gmail-sender-oauth",
+  "version": "1.0.0",
+  "description": "Send emails with Gmail API using an OAuth2 object",
+  "main": "index.js",
+  "scripts": {
+    "nsp": "nsp check",
+    "_deps-check": "npm-check-updates --error-level 2",
+    "_deps-update": "echo '* Updating packages versions... '; npm-check-updates -u --upgradeAll --error-level 1 && npm install",
+    "_check-changes": "echo '* Checking if git directory is clean... '; bash -c '[[ -z $(git status -uno --porcelain) ]]'",
+    "update-deps": "npm run _check-changes && npm run _deps-update && git commit -am 'updated deps'",
+    "lint": "eslint -f unix .",
+    "pretest": "npm run lint && npm run nsp && npm run _deps-check",
+    "_test": "mocha test/test.js",
+    "test": "mocha test/test.js",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "_commit": "git commit -am \"commit by 'npm run commit'\"",
+    "_push": "git push --follow-tags",
+    "commit-and-push": "npm run _commit && npm test && npm run _push",
+    "_patch-release": "npm version patch && npm publish",
+    "_minor-release": "npm version minor && npm publish",
+    "_major-release": "npm version major && npm publish",
+    "patch-release": "npm test && npm run _patch-release && npm run _push",
+    "minor-release": "npm test && npm run _minor-release && npm run _push",
+    "__major-release": "npm test && npm run _major-release && npm run _push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedecia/gmail-sender-oauth.git"
+  },
+  "keywords": [
+    "gmail",
+    "sender",
+    "oauth",
+    "googleapis",
+    "oauth2",
+    "compose"
+  ],
+  "author": "Federico Cia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fedecia/gmail-sender-oauth/issues"
+  },
+  "homepage": "https://github.com/fedecia/gmail-sender-oauth#readme",
+  "dependencies": {
+    "gmail-api-sync": "^1.2.3"
+  },
+  "devDependencies": {
+    "coveralls": "^2.13.0",
+    "eslint": "^3.19.0",
+    "istanbul": "^0.4.5",
+    "jshint": "^2.9.4",
+    "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "npm-check-updates": "^2.10.5",
+    "nsp": "^2.6.3"
+  }
+}
