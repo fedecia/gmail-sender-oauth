@@ -1,6 +1,6 @@
 {
   "name": "gmail-sender-oauth",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Send emails with Gmail API using an OAuth2 object",
   "main": "index.js",
   "scripts": {
