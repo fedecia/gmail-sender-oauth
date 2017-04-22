@@ -12,11 +12,11 @@ var accessToken = {
 };
 
 
-var data = {
+var params = {
     from: 'sender.oauth@gmail.com',
     to: 'sender.oauth@gmail.com',
     subject: 'Nice email',
-    content: 'This is a test'
+    body: 'This is a test'
 };
 
 sender.setClientSecretsFile(CLIENT_SECRET_PATH);
@@ -24,7 +24,7 @@ sender.setClientSecretsFile(CLIENT_SECRET_PATH);
 describe('Positive', function () {
     describe('#send()', function () {
         it('Should succesfully send an email', function (done) {
-            sender.send(accessToken, data, function (err, resp) {
+            sender.send(accessToken, params, function (err, resp) {
                 if (err) return done(err);
                 else {
                     assert.notEqual(resp.id,null);

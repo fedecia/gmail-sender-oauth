@@ -29,7 +29,7 @@ var params = {
     from: 'sender.oauth@gmail.com',
     to: 'sender.oauth@gmail.com',
     subject: 'Win an iPhone 7 today!!!',
-    content: 'This is a test'
+    body: 'This is a test'
 };
 gmailSender.send(accessToken, params, function (err, resp) {
   if (err) {

@@ -5,7 +5,7 @@ exports.setClientSecretsFile = function (path) {
     gmailApiSync.setClientSecretsFile(path);
 };
 
-exports.send = function (token, data, callback) {
+exports.send = function (token, params, callback) {
 
     gmailApiSync.authorizeWithToken(token, function (err, oauth) {
         if (err) {
@@ -14,20 +14,20 @@ exports.send = function (token, data, callback) {
         var gmail = google.gmail('v1');
         var headers = [];
 
-        headers.push('From: <' + data.from + '>');
-        headers.push('To: ' + data.to);
+        headers.push('From: <' + params.from + '>');
+        headers.push('To: ' + params.to);
         headers.push('Content-type: text/html;charset=iso-8859-1');
         headers.push('MIME-Version: 1.0');
-        headers.push('Subject: ' + data.subject);
+        headers.push('Subject: ' + params.subject);
         headers.push('');
-        headers.push(data.content);
+        headers.push(params.body);
 
         var email = headers.join('\r\n').trim();
 
         var base64EncodedEmail = new Buffer(email).toString('base64');
         base64EncodedEmail = base64EncodedEmail.replace(/\+/g, '-').replace(/\//g, '_');
 
-        var params = {
+        var reqParams = {
             auth: oauth,
             userId: 'me',
             resource: {
@@ -35,7 +35,7 @@ exports.send = function (token, data, callback) {
             }
         };
 
-        gmail.users.messages.send(params, null, function (err, resp) {
+        gmail.users.messages.send(reqParams, null, function (err, resp) {
             if (!err) {
                 return callback(null, resp);
             }
