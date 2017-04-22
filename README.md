@@ -44,3 +44,14 @@ gmailSender.send(accessToken, params, function (err, resp) {
 
 ### Authentication with Access Token
 This assumes you already have an access token from Google Api. To get one, see test [Generate Access Token](../master/test/generate_access_token.js) and if you need to start from scratch, generate a Server Auth code first, see test [Generate Server Auth code](../master/test/generate_access_token.js) .
+
+#Terminal output
+```sh
+~/personal/gmail-sender-oauth/test$ node generate_server_auth.js 
+Authorize this app by visiting this url: https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.compose&response_type=code&client_id=1081826302113-deknk5sgd6n2vutgv3l4ub4530qqc8kh.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
+If you need a accessToken to be generated as well, run: 
+node generate_access_token <SERVER_AUTH_CODE>, with the code you received from the visited URL.
+
+~/personal/gmail-sender-oauth/test$ node generate_access_token.js 4/AR34xAC0Z437ItI_27FmpDYmCeNMpMWNyZk0G6cV6EQ
+token: {"access_token":"ya29.Gls0BCt9gHK7Bmn5mPQFff6JCaVyt8ZcRiUgLPQL4SmAFk-msJOTIaISi-UiPhRD7QHR2n_8dJXymn08helwDCcnHpGK14sqHXhsH3fgTlvaNz1dZbA7P6LJO4BH","refresh_token":"1/kVLTLeR7vb1e6tuT6XHWBqZ0nG-qwldfeO1uhwdwBok","token_type":"Bearer","expiry_date":1492885695675}
+```
