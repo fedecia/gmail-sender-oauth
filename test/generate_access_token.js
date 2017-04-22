@@ -1,4 +1,4 @@
-var gmailApiSync = require('../index.js');
+var gmailApiSync = require('gmail-api-sync');
 var args = process.argv.slice(2);
 var serverAuthCode = args[0];
 

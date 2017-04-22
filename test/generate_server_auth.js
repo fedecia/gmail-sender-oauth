@@ -1,4 +1,4 @@
-var gmailApiSync = require('../index.js');
+var gmailApiSync = require('gmail-api-sync');
 
 //Load Google Api Project client secret.
 gmailApiSync.setClientSecretsFile('./client_secret.json');
