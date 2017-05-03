@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/fedecia/gmail-sender-oauth#readme",
   "dependencies": {
-    "gmail-api-sync": "^1.2.4",
+    "gmail-api-sync": "^1.2.5",
     "googleapis": "^19.0.0"
   },
   "devDependencies": {

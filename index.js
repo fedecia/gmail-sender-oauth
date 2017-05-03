@@ -4,7 +4,9 @@ var google = require('googleapis');
 exports.setClientSecretsFile = function (path) {
     gmailApiSync.setClientSecretsFile(path);
 };
-
+exports.resetCredentials = function (callback) {
+    gmailApiSync.resetCredentials(callback);
+};
 exports.send = function (token, params, callback) {
 
     gmailApiSync.authorizeWithToken(token, function (err, oauth) {
